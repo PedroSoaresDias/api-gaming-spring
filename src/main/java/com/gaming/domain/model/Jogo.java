@@ -2,8 +2,6 @@ package com.gaming.domain.model;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,15 +19,12 @@ public class Jogo {
     private String editor;
 
     @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST }, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("jogo")
     private List<Desenvolvedor> desenvolvedores;
 
     @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST }, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("jogo")
     private List<Genero> genero;
 
     @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST }, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("jogo")
     private List<Plataforma> plataformas;
 
     public Long getId() {
